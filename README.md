@@ -1,8 +1,8 @@
 # App-Movie-React
-#### app movie react 
-#### pnpm install 
-#### npm install 
-#### yarn install
+#### ✅app movie react 
+#### ✅pnpm install 
+#### ✅npm install 
+#### ✅yarn install
 
-#### pnpm install zustan;
-#### pnpm install sweetalert2
+#### ✅pnpm install zustan;
+#### ✅pnpm install sweetalert2
