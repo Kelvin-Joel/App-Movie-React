@@ -17,7 +17,7 @@ const MovieDetailsWindow = () => {
         <p className="content-title">{detailsMovies.title}</p>
         <p>Language : {detailsMovies.original_language}</p>
         <p>Description : {detailsMovies.overview}</p>
-        <p>{detailsMovies.release_date}</p>
+        <p>Date : {detailsMovies.release_date}</p>
         <div className="buttons">
           <button className="btn-close" onClick={ShowMoviesDetailsWindow}>
             Close

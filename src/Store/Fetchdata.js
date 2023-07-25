@@ -10,23 +10,27 @@ export const DataStore = create((set, get) => ({
   showDetailsMovies: false,
   ShowMovieCredits: false,
   page: 1,
+  /********************************************* */
   ShowMoviesDetailsWindow: () => {
     set({ showDetailsMovies: !get().showDetailsMovies });
   },
+  /********************************************* */
   ShowCreditPoput: () => {
     set({ ShowMovieCredits: !get().ShowMovieCredits });
   },
+  /********************************************* */
   ChangePage: (numberpage) => {
     set({ page: numberpage });
   },
+  /********************************************* */
   fetchMovies: async (page) => {
     const getMoviesData = await fetch(
       `https://api.themoviedb.org/3/movie/popular?api_key=102a002846ef9bd6c1e5c28d806b478a&language=en-US&page=${page}`
     );
     const moviesList = await getMoviesData.json();
-    //console.log(moviesList.results.length===0 ? "error no encontrado" : "datos encontrados :S")
     set((state) => ({ ...state, moviesList }));
   },
+  /********************************************* */
   movieDetails: async (idmovie) => {
     const filter = get().moviesList.results.find(
       (movie) => movie.id === idmovie
@@ -34,14 +38,7 @@ export const DataStore = create((set, get) => ({
     set(() => ({ detailsMovies: filter }));
     get().ShowMoviesDetailsWindow();
   },
-  /* getCreditMovie: async (idmovie) => {
-    const getData = await fetch(
-      `https://api.themoviedb.org/3/movie/${idmovie}/credits?api_key=102a002846ef9bd6c1e5c28d806b478a&language=en-US&page=1`
-    );
-    const creditMovie = await getData.json();
-    set((state) => ({ ...state, creditMovie }));
-    get().ShowCreditPoput();
-  }, */
+  /********************************************* */
   searchMovies: async (titlemovie) => {
     //https://api.themoviedb.org/3/search/movie?api_key={api_key}&query=Jack+Reacher
     const getmovie = await fetch(
@@ -49,6 +46,5 @@ export const DataStore = create((set, get) => ({
     );
     const results = await getmovie.json();
     set({ moviesList: results });
-    console.log(results);
   },
 }));

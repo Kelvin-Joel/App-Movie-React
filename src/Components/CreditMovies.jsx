@@ -1,12 +1,12 @@
 import React from "react";
 import { DataStore } from "../Store/Fetchdata";
 import "../Styles/CreditMovies.css";
+
 const CreditMovies = () => {
-  const { detailsMovies,dataMovies,ShowMovieCredits } = DataStore();
-  let portadaimg =`https://image.tmdb.org/t/p/w500${detailsMovies.poster_path}`;
+  const { detailsMovies,ShowMovieCredits } = DataStore();
   return (
     <div className={`container-credit-movie ${ShowMovieCredits ? 'showcredit' : 'hidden'}`} >
-      <div   className="credit-portada" >
+      <div className="credit-portada" >
         <h2>{detailsMovies.title}</h2>
         <p>{detailsMovies.overview}</p>
       </div>

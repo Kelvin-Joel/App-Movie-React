@@ -5,11 +5,22 @@ import { StoreMovies } from "../Store/Store";
 
 const ListCardsMovies = () => {
   const { moviesList, movieDetails, fetchMovies } = DataStore();
-  const { addMovietoFavoritesList } = StoreMovies();
+  const { addMovietoFavoritesList,bd } = StoreMovies();
 
   useEffect(() => {
     fetchMovies(1);
   }, []);
+
+  useEffect(() => {
+   /*  console.log(bd)
+    for(let index of moviesList.results){
+      for(let values of bd){
+        if(index.id === values.id){
+          return console.log("encontrado")
+        }
+      }
+    } */
+  }, [bd])
 
   return (
     <div className="container-movie">
@@ -25,7 +36,7 @@ const ListCardsMovies = () => {
               <div className="card-description">
                 <p className="card-title">{movie.title}</p>
                 <p className="card-icon" onClick={() => addMovietoFavoritesList(movie)}>
-                  💙
+                  🤍
                 </p>
               </div>
             </div>
